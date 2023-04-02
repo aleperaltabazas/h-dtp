@@ -1,0 +1,54 @@
+name: dtp
+version: 0.1.0.0
+github: "githubuser/dtp"
+license: BSD3
+author: "Author name here"
+maintainer: "example@example.com"
+copyright: "2021 Author name here"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/githubuser/dtp#readme>
+
+dependencies:
+  - aeson <= 1.4.7.1
+  - base >= 4.7 && < 5
+  - binary == 0.8.7.0
+  - bytestring == 0.10.10.1
+  - network == 3.1.1.1
+  - split <= 0.2.3.4
+  - transformers <= 0.5.6.2
+
+library:
+  source-dirs: src
+
+executables:
+  dtp-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - dtp
+
+tests:
+  dtp-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - dtp
